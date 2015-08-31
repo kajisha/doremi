@@ -1,1 +1,1 @@
-ActiveRecord::Base.establish_connection adapter: 'postgresql', database: 'pg_ops_test'
+ActiveRecord::Base.establish_connection adapter: 'postgresql', database: 'doremi_test'

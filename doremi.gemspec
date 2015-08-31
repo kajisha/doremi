@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'pg_ops/version'
+require 'doremi/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'pg_ops'
+  spec.name          = 'doremi'
   spec.version       = PgOps::VERSION
   spec.authors       = ['kajisha']
   spec.email         = ['kajisha@gmail.com']
 
   spec.summary       = %q{postgresql extended operator}
   spec.description   = %q{postgresql extended operators}
-  spec.homepage      = 'https://github.com/kajisha/pg_ops'
+  spec.homepage      = 'https://github.com/kajisha/doremi'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.

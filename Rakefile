@@ -8,11 +8,11 @@ task default: %w(db:drop db:create spec)
 
 namespace :db do
   task :create do
-    connection.execute 'CREATE DATABASE pg_ops_test'
+    connection.execute 'CREATE DATABASE doremi_test'
   end
 
   task :drop do
-    connection.execute 'DROP DATABASE IF EXISTS pg_ops_test'
+    connection.execute 'DROP DATABASE IF EXISTS doremi_test'
   end
 
   def connection

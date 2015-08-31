@@ -2,7 +2,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'active_record'
 require 'database_cleaner'
-require 'pg_ops'
+require 'doremi'
 require 'pry'
 
 require 'support/connection'
