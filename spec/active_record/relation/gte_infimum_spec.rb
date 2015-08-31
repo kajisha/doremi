@@ -6,12 +6,12 @@ RSpec.describe ActiveRecord::QueryMethods::WhereChain do
                 array: [1, 2, 3])
   end
 
-  describe '#not_extend_left_of' do
+  describe '#gte_infimum' do
     let (:int4range) { (1..10) }
     let (:array) { [1, 2, 3] }
 
-    let (:range_operator) { Post.where.not_extend_left_of(int4range: int4range).exists? }
-    let (:array_operator) { Post.where.not_extend_left_of(array: array).exists? }
+    let (:range_operator) { Post.where.gte_infimum(int4range: int4range).exists? }
+    let (:array_operator) { Post.where.gte_infimum(array: array).exists? }
 
     context 'equals' do
       it { expect(range_operator).to eq(true) }
@@ -30,7 +30,7 @@ RSpec.describe ActiveRecord::QueryMethods::WhereChain do
       let (:int4range) { (9..11) }
       let (:array) { [2, 3, 4] }
 
-      it { expect(range_operator).to eq(true) }
+      it { expect(range_operator).to eq(false) }
       it { expect { array_operator }.to raise_error(ActiveRecord::StatementInvalid) }
     end
 
@@ -38,7 +38,7 @@ RSpec.describe ActiveRecord::QueryMethods::WhereChain do
       let (:int4range) { (11..20) }
       let (:array) { [4, 5, 6] }
 
-      it { expect(range_operator).to eq(true) }
+      it { expect(range_operator).to eq(false) }
       it { expect { array_operator }.to raise_error(ActiveRecord::StatementInvalid) }
     end
 
@@ -46,8 +46,14 @@ RSpec.describe ActiveRecord::QueryMethods::WhereChain do
       let (:int4range) { (-10..0) }
       let (:array) { [-2, -1, 0] }
 
-      it { expect(range_operator).to eq(false) }
+      it { expect(range_operator).to eq(true) }
       it { expect { array_operator }.to raise_error(ActiveRecord::StatementInvalid) }
+    end
+
+    context 'right to (-2..2)' do
+      let (:int4range) { (-2..2) }
+
+      it { expect(range_operator).to eq(true) }
     end
   end
 end

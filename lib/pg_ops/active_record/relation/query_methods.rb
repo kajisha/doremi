@@ -21,7 +21,7 @@ module ActiveRecord
         substitute_comparision(opts, rest, '&&')
       end
 
-      def contains(opts, *rest)
+      def contain(opts, *rest)
         substitute_comparision(opts, rest, '@>')
       end
 
@@ -29,19 +29,19 @@ module ActiveRecord
         substitute_comparision(opts, rest, '<@')
       end
 
-      def left_of(opts, *rest)
+      def lower_bound_of(opts, *rest)
         substitute_comparision(opts, rest, '<<')
       end
 
-      def right_of(opts, *rest)
+      def upper_bound_of(opts, *rest)
         substitute_comparision(opts, rest, '>>')
       end
 
-      def not_extend_left_of(opts, *rest)
+      def lte_supremum(opts, *rest)
         substitute_comparision(opts, rest, '&<')
       end
 
-      def not_extend_right_of(opts, *rest)
+      def gte_infimum(opts, *rest)
         substitute_comparision(opts, rest, '&>')
       end
 

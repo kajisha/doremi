@@ -7,12 +7,12 @@ RSpec.describe ActiveRecord::QueryMethods::WhereChain do
       array: [1, 2, 3])
   end
 
-  describe '#contains' do
+  describe '#contain' do
     let (:int4range) { (1..10) }
     let (:array) { [1, 2, 3] }
 
-    let (:range_operator) { Post.where.contains(int4range: int4range).exists? }
-    let (:array_operator) { Post.where.contains(array: array).exists? }
+    let (:range_operator) { Post.where.contain(int4range: int4range).exists? }
+    let (:array_operator) { Post.where.contain(array: array).exists? }
 
     context 'equals' do
       it { expect(range_operator).to eq(true) }
