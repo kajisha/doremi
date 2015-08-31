@@ -1,3 +1,3 @@
-module PgOps
-  VERSION = "0.1.0"
+module Doremi
+  VERSION = "0.1.1"
 end

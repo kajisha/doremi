@@ -5,7 +5,7 @@ require 'doremi/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'doremi'
-  spec.version       = PgOps::VERSION
+  spec.version       = Doremi::VERSION
   spec.authors       = ['kajisha']
   spec.email         = ['kajisha@gmail.com']
 
